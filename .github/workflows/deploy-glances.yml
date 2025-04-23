@@ -1,4 +1,4 @@
-name: Deploy Glances systemd service
+name: Deploy Glances systemd service!
 
 on:
   push:
