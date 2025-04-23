@@ -1,0 +1,21 @@
+name: Deploy Glances systemd service
+
+on:
+  push:
+    paths:
+      - 'systemd/glances.service'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, minipc]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: copy and restart service
+        run: |
+          sudo mv ./systemd/glances.service /etc/systemd/system/glances.service
+          sudo systemctl daemon-reload
+          sudo systemctl enable glances
+          sudo systemctl restart glances
