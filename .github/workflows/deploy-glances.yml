@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'systemd/glances.service'
+      - '.github/workflows/deploy-glances.yml'
 
 jobs:
   deploy:
@@ -12,6 +13,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: check username
+        run: |
+          echo $(whoami)
 
       - name: copy and restart service
         run: |
