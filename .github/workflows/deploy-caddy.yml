@@ -1,0 +1,19 @@
+name: Deploy Caddy!
+
+on:
+  push:
+    paths:
+      - 'caddy/*'
+      - '.github/workflows/deploy-caddy.yml'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, minipc]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: reload caddyfoile
+        run: |
+          curl localhost:2019/load -H "Content-Type: text/caddyfile" --data-binary @caddy/Caddyfile
