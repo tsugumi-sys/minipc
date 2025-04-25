@@ -12,6 +12,6 @@
 	# You have to place this in every route you want to add logs
 	log main
 
-	root * /var/www/html/
-	file_server * browse
+	respond /health-check 200
+	respond "Hello, world!"
 }
