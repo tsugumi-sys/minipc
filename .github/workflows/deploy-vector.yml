@@ -23,4 +23,5 @@ jobs:
 
       - name: copy and restart service
         run: |
+          sudo systemctl daemon-reload
           sudo systemctl restart vector
