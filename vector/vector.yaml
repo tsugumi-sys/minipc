@@ -5,7 +5,6 @@ sources:
       - /var/log/caddy/access.log
     ignore_older: 86400
     read_from: beginning
-    encoding: utf-8
 
 transforms:
   to_clf:
