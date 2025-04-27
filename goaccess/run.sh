@@ -1,6 +1,6 @@
 #!bin/bash
 
-sudo /home/tsugumisys/goaccess/goaccess-1.9.4/goaccess /var/log/caddy/access.log \
+sudo /home/tsugumisys/goaccess/goaccess-1.9.4/goaccess /var/log/vector/fixed_access.log \
   --log-format=CADDY \
   --date-format=%s \
   --time-format=%s \
