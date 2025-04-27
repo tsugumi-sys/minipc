@@ -1,0 +1,39 @@
+sources:
+  caddy:
+    type: file
+    include:
+      - /var/log/caddy/access.log
+    ignore_older: 86400
+    read_from: beginning
+    encoding: utf-8
+
+transforms:
+  to_clf:
+    type: remap
+    inputs:
+      - caddy
+    source: |
+      structured = parse_json!(.message)
+      if exists(structured.request) {
+        . = format!(
+          "{ip} - - [{ts}] \"{method} {uri} {proto}\" {status} {size}",
+          ip = structured.request.remote_ip,
+          ts = split!(structured.ts, "T")[0],
+          method = structured.request.method,
+          uri = structured.request.uri,
+          proto = structured.request.proto,
+          status = structured.status,
+          size = structured.size
+        )
+      } else {
+        drop()
+      }
+
+sinks:
+  goaccess_log:
+    type: file
+    inputs:
+      - to_clf
+    path: /var/log/vector/caddy_clf.log
+    encoding:
+      codec: text
