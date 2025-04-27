@@ -32,5 +32,11 @@
 	handle /hidden-login {
 		respond "Login not allowed" 403
 	}
+
+	handle /login* {
+		root * /home/tsugumisys/actions-runner/_work/minipc/minipc/caddy/
+		file_server
+	}
+
 	# --- Honeypot routes end here ---
 }
