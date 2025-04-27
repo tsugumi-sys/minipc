@@ -19,6 +19,7 @@ jobs:
           sudo mkdir -p /var/log/vector
           sudo mkdir -p /etc/vector
           sudo cp ./vector/vector.yaml /etc/vector/vector.yaml
+          sudo cp ./vector/vector.service /etc/systemd/system
 
       - name: copy and restart service
         run: |
