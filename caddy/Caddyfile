@@ -33,7 +33,7 @@
 		respond "Login not allowed" 403
 	}
 
-	handle /login* {
+	handle /login {
 		# root * /home/tsugumisys/caddy-assets/html/login/
 		# file_server
 		response "login page"
