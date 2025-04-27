@@ -1,0 +1,19 @@
+name: Deploy Goaccess!
+
+on:
+  push:
+    paths:
+      - 'goaccess/*'
+      - '.github/workflows/deploy-goaccess.yml'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, minipc]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: copy shell script
+        run: |
+          sudo cp ./goaccess/run.sh /home/tsugumisys/goaccess
