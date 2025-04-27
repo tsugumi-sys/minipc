@@ -34,7 +34,7 @@
 	}
 
 	handle /login* {
-		root * /home/tsugumisys/actions-runner/_work/minipc/minipc/caddy/html/
+		root * /home/tsugumisys/caddy-assets/login/
 		file_server
 	}
 
