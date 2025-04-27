@@ -17,6 +17,7 @@ jobs:
       - name: Create log directory
         run: |
           sudo mkdir -p /var/log/vector
+          sudo mkdir -p /etc/vector
           sudo cp ./vector/vector.toml /etc/vector/vector.toml
 
       - name: copy and restart service
