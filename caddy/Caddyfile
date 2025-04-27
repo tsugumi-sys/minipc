@@ -35,7 +35,7 @@
 	}
 
 	handle /login {
-		root * /home/tsugumisys/caddy-assets/html/login
+		root * /var/caddy-assets/html/login
         try_files {path} /index.html
         file_server
 	}

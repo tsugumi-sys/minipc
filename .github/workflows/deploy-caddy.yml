@@ -16,7 +16,8 @@ jobs:
 
       - name: copy assets
         run: |
-          sudo cp -R ./caddy/html /home/tsugumisys/caddy-assets
+          sudo mkdir -p /var/caddy-assets
+          sudo cp -R ./caddy/html /var/caddy-assets
 
       - name: reload caddyfoile
         run: |
