@@ -19,4 +19,18 @@
 		root * /var/goaccess/
 		file_server
 	}
+
+	# --- Honeypot routes start here ---
+	handle /admin {
+		respond "403 Forbidden" 403
+	}
+
+	handle /secret {
+		respond "Access denied" 403
+	}
+
+	handle /hidden-login {
+		respond "Login not allowed" 403
+	}
+	# --- Honeypot routes end here ---
 }
