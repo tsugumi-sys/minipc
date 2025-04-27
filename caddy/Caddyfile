@@ -34,9 +34,9 @@
 	}
 
 	handle /login {
-		# root * /home/tsugumisys/caddy-assets/html/login/
-		# file_server
-		respond "login page"
+		root * /home/tsugumisys/caddy-assets/html/login
+        try_files {path} /index.html
+        file_server
 	}
 
 	# --- Honeypot routes end here ---
