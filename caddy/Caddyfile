@@ -14,4 +14,10 @@
 
 	respond /health-check 200
 	respond "Hello, world!"
+
+	handle /report* {
+		# Serve GoAccess report (HTML dashboard)
+		root * /var/goaccess/
+		file_server
+	}
 }
