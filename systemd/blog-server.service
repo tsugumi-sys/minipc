@@ -1,0 +1,11 @@
+[Unit]
+Description=Blog server
+
+[Service]
+ExecStart=/home/tsugumisys/actions-runner-myblog/_work/myblog/myblog/target/release/web
+WorkingDirectory=/home/tsugumisys
+Restart=always
+User=tsugumisys
+
+[Install]
+WantedBy=multi-user.target

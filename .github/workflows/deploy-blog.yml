@@ -1,0 +1,22 @@
+name: Deploy Blog server!
+
+on:
+  push:
+    paths:
+      - 'systemd/blog-server.service'
+      - '.github/workflows/deploy-blog.yml'
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, minipc]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: copy and restart service
+        run: |
+          sudo mv ./systemd/blog-server.service /etc/systemd/system/blog-server.service
+          sudo systemctl daemon-reload
+          sudo systemctl enable blog-server
+          sudo systemctl restart blog-server
