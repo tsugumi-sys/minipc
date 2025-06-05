@@ -2,7 +2,7 @@
 Description=Blog server
 
 [Service]
-ExecStart=/usr/local/bin/blog-server
+ExecStart=/usr/local/bin/blog-server /home/tsugumisys/actions-runner-myblog/_work/myblog/myblog/public
 WorkingDirectory=/home/tsugumisys
 Restart=always
 User=tsugumisys
